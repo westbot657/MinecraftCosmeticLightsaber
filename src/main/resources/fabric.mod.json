@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "cosmetic_saber",
+  "version": "${version}",
+  "name": "Cosmetic Saber",
+  "description": "a cosmetic lightsaber",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/cosmetic_saber/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.westbot.cosmetic_saber.client.CosmeticSaberClient"
+    ]
+  },
+  "mixins": [
+    "cosmetic_saber.mixins.json",
+    {
+      "config": "cosmetic_saber.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
