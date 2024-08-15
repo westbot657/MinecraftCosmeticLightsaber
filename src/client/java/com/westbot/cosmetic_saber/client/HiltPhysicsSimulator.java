@@ -3,7 +3,6 @@ import com.bulletphysics.dynamics.*;
 import com.bulletphysics.dynamics.constraintsolver.Point2PointConstraint;
 import com.bulletphysics.collision.shapes.BoxShape;
 import com.bulletphysics.collision.broadphase.*;
-import com.bulletphysics.dynamics.constraintsolver.RotationalLimitMotor;
 import com.bulletphysics.dynamics.constraintsolver.SequentialImpulseConstraintSolver;
 import com.bulletphysics.linearmath.DefaultMotionState;
 import com.bulletphysics.collision.dispatch.*;
@@ -16,7 +15,6 @@ public class HiltPhysicsSimulator {
 
     private final DynamicsWorld dynamicsWorld;
     private final RigidBody hiltRigidBody;
-    private RotationalLimitMotor motor;
 
     public HiltPhysicsSimulator() {
         BroadphaseInterface broadphase = new DbvtBroadphase();
@@ -30,7 +28,7 @@ public class HiltPhysicsSimulator {
 
         Transform startTransform = new Transform();
         startTransform.setIdentity();
-        startTransform.origin.set(new Vector3f((float) 1/16f, (float) 9/16f, (float) 1/16f)); // Initial position near the player’s hip
+        startTransform.origin.set(new Vector3f((float) 1/16f, (float) 9/16f, (float) 1/16f));
 
         float mass = 2f;
         Vector3f localInertia = new Vector3f(0, 0, 0);
@@ -51,7 +49,7 @@ public class HiltPhysicsSimulator {
 
     }
 
-    public Quat4f updateSimulation(float deltaTime, Vector3f playerVelocity, float yaw) {
+    public Quat4f updateSimulation(float deltaTime, Vector3f playerVelocity) {
         Vector3f force = new Vector3f(playerVelocity);
         force.scale(100f);
         force.set(force.x, 0, force.z);

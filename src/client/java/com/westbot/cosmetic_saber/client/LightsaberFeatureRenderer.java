@@ -50,7 +50,7 @@ public class LightsaberFeatureRenderer extends FeatureRenderer<AbstractClientPla
                 vel = vel.multiply(0);
             }
 
-            Quat4f rotation = sim.updateSimulation(tickDelta, new Vector3f((float) -vel.x, (float) vel.y, (float) vel.z), 0);
+            Quat4f rotation = sim.updateSimulation(tickDelta, new Vector3f((float) -vel.x, (float) vel.y, (float) vel.z));
             Quaternionf rot = new Quaternionf(rotation.x, rotation.y, rotation.z, rotation.w);
             Vec3d point = anchor_point;
 
